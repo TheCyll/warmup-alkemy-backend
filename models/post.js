@@ -29,7 +29,7 @@ const Post = sequelize.define('Post', {
 });
 
 (async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync();
   console.log('Models and tables synced');
 })();
 
