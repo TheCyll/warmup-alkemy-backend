@@ -3,6 +3,7 @@ const { PORT } = require('./config/config');
 
 const app = express();
 const db = require('./database/database');
+require('./models/post');
 
 app.use(express.urlencoded({ extended: false })); 
 app.use(express.json());
