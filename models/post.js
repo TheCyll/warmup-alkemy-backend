@@ -13,11 +13,11 @@ const Post = sequelize.define('Post', {
     allowNull: false
   },
   Contenido: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   },
   Imagen: {
-    type: DataTypes.STRING
+    type: DataTypes.TEXT
   },
   Categoria: {
     type: DataTypes.STRING
@@ -28,19 +28,21 @@ const Post = sequelize.define('Post', {
   updatedAt: false 
 });
 
-Post.sync({ force: true })
+(async () => {
+  await sequelize.sync({ force: true });
+  console.log('Models and tables synced');
+})();
 
 function validatePost(registry) {
 
   const schema = Joi.object({    
-    Título: Joi.string()
-      .alphanum()
+    Titulo: Joi.string()      
       .min(2)
-      .max(15)    
+      .max(30)    
       .required(),
     Contenido: Joi.string().required(),    
     Imagen: Joi.string().dataUri(),    
-    Categoría: Joi.string().alphanum()      
+    Categoria: Joi.string().alphanum()      
   });
 
   return schema.validate(registry);
