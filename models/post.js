@@ -8,7 +8,7 @@ const Post = sequelize.define('Post', {
     primaryKey: true,
     autoIncrement: true 
   },
-  Título: {
+  Titulo: {
     type: DataTypes.STRING,
     allowNull: false
   },
@@ -19,10 +19,16 @@ const Post = sequelize.define('Post', {
   Imagen: {
     type: DataTypes.STRING
   },
-  Categoría: {
+  Categoria: {
     type: DataTypes.STRING
-  }  
+  } 
+}, 
+{ 
+  createdAt: 'Fecha_de_creacion', 
+  updatedAt: false 
 });
+
+Post.sync({ force: true })
 
 function validatePost(registry) {
 

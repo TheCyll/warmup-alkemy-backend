@@ -18,5 +18,5 @@ const sequelize = new Sequelize( DB.NAME, DB.USERNAME, DB.PASSWORD, {
 })();
 
 module.exports = {
-  sequelize
+  sequelize 
 }
